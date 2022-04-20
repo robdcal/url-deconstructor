@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <UrlInput
-          value={this.state.fullUrl}
+          inputValue={this.state.fullUrl}
           handleChange={this.handleChange}
         ></UrlInput>
         <br />
