@@ -8,9 +8,9 @@ const UrlParts = ({ deconstructedUrl }) => {
       <table>
         <tbody>
           <tr>
-            <td colSpan={2}>
+            <th colSpan={2}>
               <strong>Full URL</strong>
-            </td>
+            </th>
           </tr>
           <tr>
             <td>Hostname</td>
@@ -29,9 +29,9 @@ const UrlParts = ({ deconstructedUrl }) => {
             <td>{search}</td>
           </tr>
           <tr>
-            <td colSpan={2}>
+            <th colSpan={2}>
               <strong>Query String Keys & Values</strong>
-            </td>
+            </th>
           </tr>
           {Array.from(searchParams.entries()).map((item, index) => {
             return (
