@@ -28,6 +28,52 @@ body {
   overflow: auto;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  transition: all 0.5s ease-in;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.urlInput {
+}
+
+.urlInput h2 {
+  margin-bottom: 1rem;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  border: none;
+  background: white;
+}
+
+form input {
+  border-radius: 1rem 0 0 1rem;
+}
+
+form button {
+  color: white;
+  background: black;
+  cursor: pointer;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: white;
+  color: black;
+}
+
 table {
   table-layout: fixed;
   width: 100%;
