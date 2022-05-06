@@ -1,12 +1,11 @@
-function UrlInput(props) {
+function UrlInput({ handleSubmit, inputValue, handleChange }) {
   return (
     <div className="UrlInput">
-      <p>URL Input</p>
-      <input
-        type="text"
-        value={props.inputValue}
-        onChange={props.handleChange}
-      />
+      <h2>URL Input</h2>
+      <form action="submit" onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={handleChange} />
+        <button>Deconstruct</button>
+      </form>
     </div>
   );
 }

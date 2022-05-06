@@ -1,8 +1,8 @@
-function UrlPart(props) {
+function UrlPart({ label, value }) {
   return (
     <div className="UrlPart">
-      <p>{props.label}</p>
-      <input type="text" />
+      <p>{label}</p>
+      <p>{value}</p>
     </div>
   );
 }

@@ -1,39 +1,48 @@
-// import "./App.css";
-import React from "react";
-import UrlPart from "./components/UrlPart";
+import "./App.css";
+import React, { useState, useReducer } from "react";
 import UrlInput from "./components/UrlInput";
+import UrlParts from "./components/UrlParts";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { fullUrl: "abc" };
-    this.handleChange = this.handleChange.bind(this);
-  }
+const deconstructUrl = (prevState, action) => {
+  const url = new URL(action);
+  return {
+    hostname: url.hostname ? url.hostname : null,
+    pathname: url.pathname ? url.pathname : null,
+    hash: url.hash ? url.hash : null,
+    search: url.search ? url.search : null,
+    searchParams: url.searchParams ? url.searchParams : null,
+  };
+};
 
-  handleChange(event) {
-    this.setState({ fullUrl: event.target.value });
-  }
+const App = () => {
+  const [Url, setUrl] = useState(
+    "https://docs.google.com/spreadsheets/d/1gUhbq_06AR6bW8wRofyi4N3jjJckpMyikUNGnitJrpE/edit#gid=381961244"
+  );
+  const [deconstructedUrl, dispatchDeconstructor] = useReducer(
+    deconstructUrl,
+    {}
+  );
 
-  render() {
-    return (
-      <div className="App">
-        <UrlInput
-          inputValue={this.state.fullUrl}
-          handleChange={this.handleChange}
-        ></UrlInput>
-        <br />
-        <UrlPart label={"Protocol"}></UrlPart>
-        <UrlPart label={"Subdomain"}></UrlPart>
-        <UrlPart label={"Domain"}></UrlPart>
-        <br />
-        <p>TLD</p>
-        <p>Resource / Directory</p>
-        <p>Query String + Value</p>
-        <p>Query String + Value</p>
-        <p>Query String + Value</p>
-      </div>
-    );
-  }
-}
+  const handleChange = (event) => {
+    setUrl(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatchDeconstructor(Url);
+  };
+
+  return (
+    <div className="App">
+      <UrlInput
+        inputValue={Url}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+      ></UrlInput>
+      <br />
+      <UrlParts deconstructedUrl={deconstructedUrl} />
+    </div>
+  );
+};
 
 export default App;
