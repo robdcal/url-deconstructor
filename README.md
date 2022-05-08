@@ -6,4 +6,4 @@ I may add on the ability to edit the URL details to 'reconstruct' a new, modifie
 
 ## To Do
 
-- ...
+- Add copy button to table rows to copy values
