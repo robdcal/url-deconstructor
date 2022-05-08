@@ -6,7 +6,6 @@ function UrlInput({ handleSubmit, inputValue, handleChange, error }) {
         <input type="text" value={inputValue} onChange={handleChange} />
         <button>Deconstruct</button>
       </form>
-      {/* {error ? `${error}` : null} */}
       {error && <p className="error">{error}</p>}
     </div>
   );
