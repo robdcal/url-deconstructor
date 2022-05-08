@@ -51,21 +51,22 @@ body {
 
 form input,
 form button {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border: none;
   background: white;
 }
 
 form input {
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  min-width: 40%;
 }
 
 form button {
   color: white;
   background: black;
   cursor: pointer;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
   transition: all 0.3s ease;
 }
 
@@ -76,16 +77,29 @@ form button:hover {
 
 table {
   table-layout: fixed;
+  border-collapse: collapse;
   width: 100%;
-  border: 1px solid white;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 4rem;
 }
 
 table tr {
-  border: 1px solid white;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+table tr:nth-of-type(1) {
+  border-top: none;
 }
 
 table td {
   word-wrap: break-word;
-  border: 1px solid white;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+table td:nth-of-type(1) {
+  width: 25%;
+  font-weight: 600;
+}
+table td:nth-of-type(2) {
+  padding-left: 1rem;
 }

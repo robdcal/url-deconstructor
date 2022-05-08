@@ -53,7 +53,6 @@ const App = () => {
           handleChange={handleChange}
         ></UrlInput>
       </header>
-      <br />
       <UrlParts deconstructedUrl={deconstructedUrl} />
     </div>
   );
