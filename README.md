@@ -6,4 +6,5 @@ I may add on the ability to edit the URL details to 'reconstruct' a new, modifie
 
 ## To Do
 
+- Make styling consistent by changing conditional inline styles to class-based
 - Add copy button to table rows to copy values
