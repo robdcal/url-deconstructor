@@ -8,3 +8,5 @@ I may add on the ability to edit the URL details to 'reconstruct' a new, modifie
 
 - Make styling consistent by changing conditional inline styles to class-based
 - Add copy button to table rows to copy values
+- Implement a form of export feature (i.e. CSV/Excel, JSON, txt)
+- Implement a search field to filter matching query string keys/values
