@@ -1,4 +1,4 @@
-function UrlInput({ handleSubmit, inputValue, handleChange, active }) {
+function UrlInput({ handleSubmit, inputValue, handleChange }) {
   return (
     <div className="urlInput">
       <h2>Enter your URL</h2>
