@@ -7,6 +7,7 @@ I may add on the ability to edit the URL details to 'reconstruct' a new, modifie
 ## To Do
 
 - Make styling consistent by changing conditional inline styles to class-based
+- include the protocol (i.e. HTTPS), different parts of the subdomain/domain, and the TLD
 - Add copy button to table rows to copy values
 - Implement more straightforward alternative to useReducer
 - Implement a form of export feature (i.e. CSV/Excel, JSON, txt)
