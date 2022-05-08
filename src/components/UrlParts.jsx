@@ -7,7 +7,7 @@ const UrlParts = ({ deconstructedUrl }) => {
     <Fragment>
       {deconstructedUrl.hostname ? (
         <Fragment>
-          <h3>Full URL Breakdown</h3>
+          <h3>Basic URL Breakdown</h3>
           <table>
             <tbody>
               <tr>
