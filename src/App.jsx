@@ -4,7 +4,7 @@ import UrlInput from "./components/UrlInput";
 import UrlParts from "./components/UrlParts";
 
 const deconstructUrl = (prevState, action) => {
-  const url = new URL(action);
+  const url = action;
   return {
     hostname: url.hostname ? url.hostname : null,
     pathname: url.pathname ? url.pathname : null,
@@ -17,6 +17,7 @@ const deconstructUrl = (prevState, action) => {
 const App = () => {
   const [Url, setUrl] = useState(""); // https://id.matillion.com/login?state=hKFo2SBtaVVBNTJ2bERUNDREc0NWLVE2T2J6U0ZNQVdPYjE1baFupWxvZ2luo3RpZNkgWFhtX25hUktmSER5N0ptVmVXbmZISEw2bDVDQ3BOVVKjY2lk2SB4dFU3MXhkc0w2TVhFZjVsenBPRHZkRkd2WngwMW9mTw&client=xtU71xdsL6MXEf5lzpODvdFGvZx01ofO&protocol=oauth2&audience=https%3A%2F%2Fapi.matillion.com&redirect_uri=https%3A%2F%2Fhub.matillion.com%3FreturnTo%3DeyJvcmlnaW4iOiJodHRwczovL2RhdGFsb2FkZXIubWF0aWxsaW9uLmNvbSIsInBhdGhuYW1lIjoiL3JlZ2lzdGVyIiwic2VhcmNoIjoiIn0%3D&pageBranding=mdl-default&scope=openid%20profile%20email&response_type=code&response_mode=query&nonce=emdIfmVZUjNWMTZ%2Ba0JZTmNJYklQX2FfVFRkMm9hUUhwWW90OUtCMFh2WQ%3D%3D&code_challenge=b_I1Nb_AxOUygfrE0bnArWvir0TELLeqFNBfRdn4j4E&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMS41LjAifQ%3D%3D
   const [active, setActive] = useState(false);
+  const [error, setError] = useState("");
   const [deconstructedUrl, dispatchDeconstructor] = useReducer(deconstructUrl, {
     hostname: null,
     pathname: null,
@@ -27,15 +28,17 @@ const App = () => {
 
   const handleChange = (event) => {
     setUrl(event.target.value);
+    setError("");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
-    if (event.target[0].value) {
+    try {
+      const url = new URL(Url);
+      dispatchDeconstructor(url);
       setActive(true);
-      dispatchDeconstructor(Url);
-    } else {
+    } catch (error) {
+      setError("Please enter a valid URL.");
       setActive(false);
     }
   };
@@ -54,6 +57,7 @@ const App = () => {
           inputValue={Url}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
+          error={error}
         ></UrlInput>
       </header>
       <UrlParts deconstructedUrl={deconstructedUrl} />

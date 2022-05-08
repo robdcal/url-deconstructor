@@ -98,6 +98,12 @@ form button:hover {
   color: black;
 }
 
+p.error {
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+  color: rgb(182, 0, 0);
+}
+
 table {
   table-layout: fixed;
   border-collapse: collapse;
