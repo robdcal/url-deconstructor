@@ -18,8 +18,27 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   font-family: "Poppins", sans-serif;
+  font-weight: 300;
   font-size: 16px;
   min-height: 100vh;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .App {
@@ -32,17 +51,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   text-align: center;
   transition: all 0.5s ease-in;
 }
 
 .hero h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
+  /* font-size: 4rem; */
+}
+
+.hero p {
+  margin-bottom: 4rem;
 }
 
 .urlInput {
+  /* margin-bottom: 4rem; */
 }
 
 .urlInput h2 {
