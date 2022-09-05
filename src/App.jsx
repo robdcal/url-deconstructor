@@ -3,6 +3,7 @@ import React, { useState, useReducer } from "react";
 import UrlInput from "./components/UrlInput";
 import UrlParts from "./components/UrlParts";
 
+// reducer for storing URL data breakdown
 const deconstructUrl = (prevState, action) => {
   const url = action;
   return {
